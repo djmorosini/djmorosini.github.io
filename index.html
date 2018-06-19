@@ -5,14 +5,24 @@
 
 <style>
     body {
-        background-color: black;
-        color: green;
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 101, 252);
+        background-image: url("https://i.imgur.com/z51jJmL.jpg");
         font-family: Ubuntu, monospace;
         font-size: 2vw;
+        text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
     }
 
+    .element {
+        float: right;
+}
+
     .border {
-        border-color: red;
+        border-color: rgb(0, 0, 0);
         border-width: 5px;
         border-style: solid;
         border-radius: 30%;
@@ -22,9 +32,6 @@
         text-align: center;
     }
 
-    body {
-        text-align: center
-    }
 </style>
 
 <head>
@@ -36,7 +43,7 @@
         <h1>Dylan Morosini Portfolio Page</h1>
     </header>
     <hr>
-    <img class="border" src="https://i.imgur.com/W5ruhZX.jpg" title="Dog pic" alt="Picture of my dog; Dallas" srcset="https://i.imgur.com/W5ruhZX.jpg 200w,
+    <img class="border element" src="https://i.imgur.com/W5ruhZX.jpg" title="Dog pic" alt="Picture of my dog; Dallas" srcset="https://i.imgur.com/W5ruhZX.jpg 200w,
     https://i.imgur.com/W5ruhZX.jpg 1600w" sizes="(max-width: 400px) 200px, 50vw">
     <br> City: Burlington
     <br> State: Vermont
