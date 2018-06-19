@@ -20,3 +20,14 @@ body {
     border-style: solid;
     border-radius: 30%;
 }
+a:hover {
+    color: red;
+}
+  
+a:clicked {
+    color: blue;
+}
+  
+a:active {
+    color: green;
+}
