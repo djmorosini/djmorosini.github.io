@@ -1,0 +1,22 @@
+body {
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    background-image: url("https://i.imgur.com/z51jJmL.jpg");
+    font-family: Ubuntu, monospace;
+    font-size: 2vw;
+    text-shadow: -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.element {
+    float: right;
+}
+
+.border {
+    border-color: rgb(0, 0, 0);
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 30%;
+}
