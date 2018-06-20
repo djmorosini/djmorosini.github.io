@@ -1,33 +1,48 @@
+header {
+    text-align: center;
+    color:rgb(158, 103, 0);
+}
 body {
     background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+    color: rgb(0, 90, 0);
     background-image: url("images/circuitBackg.jpg");
+    background-position: center;
     font-family: Ubuntu, monospace;
     font-size: 2vw;
-    text-shadow: -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
+}
+div {
+    font-size: 3vw;
+    padding: 50px 20px 50px 20px;
 }
 
 .element {
     float: right;
+    width: 500px;
+}
+
+.box {
+    background-color: gray;
+    padding: 10px 50px 20px 0;
+    margin: 10px 50px 20px 0;
+    border-color: #000;
 }
 
 .border {
-    border-color: rgb(0, 0, 0);
+    border-color: rgb(158, 103, 0);
     border-width: 5px;
     border-style: solid;
     border-radius: 30%;
 }
-a:hover {
-    color: red;
+a {
+    color:rgb(158, 103, 0);
 }
-  
+a:hover {
+    color: rgb(0, 90, 0);
+}
 a:clicked {
-    color: blue;
+    color: rgb(155, 83, 0);
 }
   
 a:active {
-    color: green;
+    color: black;
 }
