@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dylan Morosini Projects Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="icon" type="image/png" href="images/lapIcon.png">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Dylan Morosini</h1>
+    </header>
+    <hr>
+    <img class="border element" src="images/dallasField.jpg" title="Dylan Morosini" alt="Personal picture">
+    <div id="links">
+        <a href="/">
+            Home
+        </a>
+        <br>
+        <a href="/aboutme.html">
+            About me
+        </a>
+        <br>
+        <a href="/contactInfo.html">
+            Contact me
+        </a>
+    </div>
+    <h1>Markdown Preview</h1>
+    <textarea id="source"></textarea>
+
+    <button id="render" onclick="toPreview()">
+        Render
+    </button>
+
+    <div id="preview">
+
+    </div>
+
+    <script>
+
+        function toPreview() {
+            let input = document.getElementById("source").value
+            let preview = document.getElementById("preview")
+            preview.innerHTML = marked(input)
+        }
+
+    </script>
+
+</body>
+
+</html>
