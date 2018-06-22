@@ -57,7 +57,7 @@ function handleInput(message) {
             trys++;
             makeGuess(lastGuess)
         }
-        else if (lastGuess == maxGuess) {
+        else if (lastGuess == 100) {
             say("It can't be higher than 100!!");
         }
         else {
@@ -71,7 +71,7 @@ function handleInput(message) {
             trys++;
             makeGuess(lastGuess)
         }
-        else if (lastGuess == minGuess) {
+        else if (lastGuess == 1) {
             say("It can't be lower than 1!!");
         }
         else {
