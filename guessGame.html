@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html>
 
+<style>
+    #submitB {
+        margin: 0px 0px 20px 0px;
+    }
+
+    button {
+        margin: 0px 20px 0px 0px;
+    }
+</style>
+
 <head>
-    <title></title>
+    <title>Guessing game!</title>
     <script>
         module = {}
     </script>
@@ -11,8 +21,10 @@
 
 <body>
 
-    <h1>Guess Game</h1>
-    <p>Welcome to the guessing game, please choose a number and I'll try to guess it.</p>
+    <h1>Guessing Game</h1>
+    <p>Please submit the maximum guess number before starting;</p>
+    <input id="maxGuess" type="text" value="100" />
+    <button id="submitB" onclick="handleSubmit()">Submit</button>
 
     <div id="main">
     </div>
@@ -25,8 +37,18 @@
 </body>
 
 <script>
+    function handleSubmit() {
+        let newMax = document.getElementById("maxGuess").value
+        newMax = parseInt(newMax)
+        setMax(newMax)
+        restart();
+    }
+    function setMax(maxG) {
+        
+    }
 
-    function setupPage() {
+    function setupComputerGuessGame() {
+        
         main = document.getElementById('main')
         button = document.createElement('button')
         button.textContent = "Higher"
@@ -71,8 +93,7 @@
         clear();
         start();
     }
-    start();
-    setupPage();
+    setupComputerGuessGame();
 </script>
 
 </html>
