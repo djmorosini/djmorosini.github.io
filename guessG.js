@@ -19,10 +19,10 @@ function start() {
     trys = 1;
 
     numberOfGuesses = Math.ceil(Math.log2(maxGuess))
-    makeGuess(firstGuess)
 
     say("Please think of a number between 1 and " + maxGuess + " (inclusive).");
     say("I will guess it in " + numberOfGuesses + " tries at the most.");
+    makeGuess(firstGuess)
 }
 
 function say(message) {

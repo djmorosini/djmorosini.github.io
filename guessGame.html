@@ -13,6 +13,7 @@
 
     <h1>Guess Game</h1>
     <p>Welcome to the guessing game, please choose a number and I'll try to guess it.</p>
+    
     <div>
         <button onClick="handleInput('H')">Higher</button>
         <button onClick="handleInput('L')">Lower</button>
@@ -37,7 +38,7 @@
     }       
     function exit() {
         console.log('exit called')
-        setTimeout(restart, 20000);
+    
     }
     function clear() {
         document.getElementById('output').textContent = '';
