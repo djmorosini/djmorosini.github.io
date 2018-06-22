@@ -17,6 +17,7 @@
         module = {}
     </script>
     <script src="guessG.js"></script>
+    <link rel="icon" type="image/png" href="images/Numbers.svg">
 </head>
 
 <body>
@@ -29,8 +30,6 @@
     <div id="main">
     </div>
 
-    <h2>Output</h2>
-
     <pre id="output">
     </pre>
 
@@ -40,11 +39,7 @@
     function handleSubmit() {
         let newMax = document.getElementById("maxGuess").value
         newMax = parseInt(newMax)
-        setMax(newMax)
         restart();
-    }
-    function setMax(maxG) {
-        
     }
 
     function setupComputerGuessGame() {
