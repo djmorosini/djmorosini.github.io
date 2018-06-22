@@ -48,9 +48,8 @@ function makeGuess(guess) {
 
 function ifCorrect() {
     if (!lastGuess || !minG || !parseInt(maxG)) {
-        say("Please enter a maximum number first.")
-    }
-    else {
+        say("Please submit a maximum number first.")
+    } else {
         say("Your number was " + lastGuess + "!");
         say("I guessed it in " + trys + " tries.");
         exit();
@@ -59,36 +58,30 @@ function ifCorrect() {
 
 function ifLower() {
     if (!lastGuess || !minG || !parseInt(maxG)) {
-        say("Please enter a maximum number first.")
-    }
-    else if (lastGuess != minG) {
+        say("Please submit a maximum number first.")
+    } else if (lastGuess != minG) {
         maxG = lastGuess - 1;
         lastGuess = calcMid(minG, maxG);
         trys++;
         makeGuess(lastGuess);
-    }
-    else if (lastGuess == 1) {
+    } else if (lastGuess == 1) {
         say("It can't be lower than 1!!");
-    }
-    else if (lastGuess == minG) {
+    } else if (lastGuess == minG) {
         say("You can't do that! You already said it was higher than " + (lastGuess - 1));
     }
 }
 
 function ifHigher() {
     if (!lastGuess || !minG || !parseInt(maxG)) {
-        say("Please enter a maximum number first.")
-    } 
-    else if (lastGuess != maxG) {
+        say("Please submit a maximum number first.")
+    } else if (lastGuess != maxG) {
         minG = lastGuess + 1;
         lastGuess = calcMid(minG, maxG);
         trys++;
         makeGuess(lastGuess);
-    }
-    else if (lastGuess == 100) {
+    } else if (lastGuess == 100) {
         say("It can't be higher than 100!!");
-    }
-    else if (lastGuess == maxG) {
+    } else if (lastGuess == maxG) {
         say("You can't do that! You already said it was lower than " + (lastGuess + 1));
     }
 }
