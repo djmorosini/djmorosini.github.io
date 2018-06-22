@@ -24,9 +24,8 @@ function start() {
 
         numberOfGuesses = Math.ceil(Math.log2(maxG))
 
-        say("Welcome to the guessing game, please choose a number and I'll try to guess it.\n")
-        say("Think of a number between 1 and " + maxG + " (inclusive).");
-        say("I will guess it in " + numberOfGuesses + " tries at the most.");
+        say("Welcome to the guessing game! Think of a number between 1 and " + maxG + " (inclusive).");
+        say("I will guess it in " + numberOfGuesses + " tries at the most.\n");
         makeGuess(firstGuess)
     }
 }
@@ -42,7 +41,7 @@ function capitalize(name) {
 
 function makeGuess(guess) {
 
-    say("Is it... " + guess);
+    say("Is it... " + guess + "?\n");
 
 }
 
@@ -51,7 +50,8 @@ function ifCorrect() {
         say("Please submit a maximum number first.")
     } else {
         say("Your number was " + lastGuess + "!");
-        say("I guessed it in " + trys + " tries.");
+        say("I guessed it in " + trys + " tries.\n");
+        say("Click the 'New Game' button to play again!")
         exit();
     }
 }
