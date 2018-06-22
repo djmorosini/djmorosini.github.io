@@ -13,7 +13,7 @@ function start() {
     minG = 1;
     maxG = document.getElementById("maxGuess").value;
     if (!parseInt(maxG) || maxG == "") {
-        say("The maximum guess has to be a number")
+        say("The maximum guess has to be a number!")
         exit()
     } else {
 
