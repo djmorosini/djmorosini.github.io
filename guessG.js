@@ -13,8 +13,8 @@ function start() {
     minGuess = 1;
     maxGuess = 100;
 
-    firstGuess = calcMid(minGuess,maxGuess)
-    lastGuess=firstGuess
+    firstGuess = calcMid(minGuess, maxGuess)
+    lastGuess = firstGuess
 
     trys = 1;
 
@@ -39,52 +39,50 @@ function capitalize(name) {
 
 function makeGuess(guess) {
 
-
     say("Is it... " + guess);
-
 
 }
 
-function handleInput(message) {
-    message = message.toString().trim();
-    if (message == "") {
-        // say("You have to type in a letter!");
+
+function ifCorrect() {
+    say("Your number was " + lastGuess + "!");
+    say("I guessed it in " + trys + " tries.");
+    exit();
+}
+
+function ifLower() {
+    if (lastGuess != minGuess) {
+        maxGuess = lastGuess - 1;
+        lastGuess = calcMid(minGuess, maxGuess);
+        trys++;
+        makeGuess(lastGuess);
     }
-    else if (capitalize(message) == "H") {
-        if (lastGuess != maxGuess) {
-            minGuess = lastGuess + 1;
-            lastGuess = calcMid(minGuess,maxGuess)
-            trys++;
-            makeGuess(lastGuess)
-        }
-        else if (lastGuess == 100) {
-            say("It can't be higher than 100!!");
-        }
-        else {
-            say("You can't do that! You already said it was lower than " + (lastGuess + 1));
-        }
+    else if (lastGuess == 1) {
+        say("It can't be lower than 1!!");
     }
-    else if (capitalize(message) == "L") {
-        if (lastGuess != minGuess) {
-            maxGuess = lastGuess - 1;
-            lastGuess = calcMid(minGuess, maxGuess)
-            trys++;
-            makeGuess(lastGuess)
-        }
-        else if (lastGuess == 1) {
-            say("It can't be lower than 1!!");
-        }
-        else {
-            say("You can't do that! You already said it was higher than " + (lastGuess - 1));
-        }
-    }
-    else if (capitalize(message) == "Y") {
-        say("Your number was " + lastGuess + "!");
-        say("I guessed it in " + trys + " tries.");
-        exit();
+    else if (lastGuess == minGuess) {
+        say("You can't do that! You already said it was higher than " + (lastGuess - 1));
     }
     else {
-        say("Wrong letter, try again!");
+
+    }
+}
+
+function ifHigher() {
+    if (lastGuess != maxGuess) {
+        minGuess = lastGuess + 1;
+        lastGuess = calcMid(minGuess, maxGuess);
+        trys++;
+        makeGuess(lastGuess);
+    }
+    else if (lastGuess == 100) {
+        say("It can't be higher than 100!!");
+    }
+    else if (lastGuess == maxGuess) {
+        say("You can't do that! You already said it was lower than " + (lastGuess + 1));
+    }
+    else {
+
     }
 }
 
@@ -93,7 +91,9 @@ function calcMid(min, max) {
 }
 
 module.exports = {
-    handleInput: handleInput,
+    ifHigher: ifHigher,
+    ifLower: ifLower,
+    ifCorrect: ifCorrect,
     calcMid: calcMid,
     start: start
 }

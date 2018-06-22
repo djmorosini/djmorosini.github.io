@@ -13,32 +13,56 @@
 
     <h1>Guess Game</h1>
     <p>Welcome to the guessing game, please choose a number and I'll try to guess it.</p>
-    
-    <div>
-        <button onClick="handleInput('H')">Higher</button>
-        <button onClick="handleInput('L')">Lower</button>
-        <button onClick="handleInput('Y')">Yes</button>
 
-        <button onClick="restart()">New game</button>
-
-        <h2>Output</h2>
-        <pre id="output">
-
-        </pre>
+    <div id="main">
     </div>
 
-    <script>
+    <h2>Output</h2>
 
-    </script>
+    <pre id="output">
+    </pre>
 
 </body>
+
 <script>
+
+    function setupPage() {
+        main = document.getElementById('main')
+        button = document.createElement('button')
+        button.textContent = "Higher"
+        button.setAttribute("id", "higherB")
+        button.addEventListener('click', ifHigher)
+        main.appendChild(button)
+
+        main = document.getElementById('main')
+        button = document.createElement('button')
+        button.textContent = "Lower"
+        button.setAttribute("id", "lowerB")
+        button.addEventListener('click', ifLower)
+        main.appendChild(button)
+
+        main = document.getElementById('main')
+        button = document.createElement('button')
+        button.textContent = "Correct"
+        button.setAttribute("id", "correctB")
+        button.addEventListener('click', ifCorrect)
+        main.appendChild(button)
+
+        main = document.getElementById('main')
+        button = document.createElement('button')
+        button.textContent = "New Game"
+        button.setAttribute("id", "startB")
+        button.addEventListener('click', restart)
+        main.appendChild(button)
+
+    }
+
     function say(message) {
         document.getElementById('output').textContent += '\n' + message;
-    }       
+    }
     function exit() {
         console.log('exit called')
-    
+
     }
     function clear() {
         document.getElementById('output').textContent = '';
@@ -48,6 +72,7 @@
         start();
     }
     start();
+    setupPage();
 </script>
 
 </html>
