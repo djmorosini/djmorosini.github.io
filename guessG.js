@@ -25,7 +25,7 @@ function start() {
         numberOfGuesses = Math.ceil(Math.log2(maxG))
 
         say("Welcome to the guessing game! Think of a number between 1 and " + maxG + " (inclusive).");
-        say("I will guess it in " + numberOfGuesses + " tries at the most.\n");
+        say("Let me know if it's 'Higher' or 'Lower' with the buttons above. I will guess it in " + numberOfGuesses + " tries at the most.\n");
         makeGuess(firstGuess)
     }
 }
