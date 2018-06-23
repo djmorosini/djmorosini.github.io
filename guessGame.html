@@ -9,6 +9,18 @@
     button {
         margin: 0px 20px 0px 0px;
     }
+
+    pre {
+        color: purple;
+        font-size: 20px;
+        box-sizing: content-box;
+        height: 350px;
+        width: 1300px;
+        border: solid black 0px;
+        overflow: auto;
+        scroll-behavior: auto;
+        scroll-snap-type: mandatory;
+    }
 </style>
 
 <head>
@@ -21,21 +33,21 @@
 </head>
 
 <body>
-        <a href="/">
-            Home
-        </a>
-        <br>
-        <a href="/aboutme.html">
-            About me
-        </a>
-        <br>
-        <a href="/projects.html">
-            Projects
-        </a>
-        <br>
-        <a href="/contactInfo.html">
-            Contact me
-        </a>
+    <a href="/">
+        Home
+    </a>
+    <br>
+    <a href="/aboutme.html">
+        About me
+    </a>
+    <br>
+    <a href="/projects.html">
+        Projects
+    </a>
+    <br>
+    <a href="/contactInfo.html">
+        Contact me
+    </a>
 
     <h1>Guessing Game</h1>
     <p>Submit the maximum guess number before starting;</p>
@@ -58,7 +70,7 @@
     }
 
     function setupComputerGuessGame() {
-        
+
         main = document.getElementById('main')
         button = document.createElement('button')
         button.textContent = "Higher"
@@ -91,6 +103,7 @@
 
     function say(message) {
         document.getElementById('output').textContent += '\n' + message;
+        checkTextareaHeight()
     }
     function exit() {
         console.log('exit called')
@@ -102,6 +115,12 @@
     function restart() {
         clear();
         start();
+    }
+    function checkTextareaHeight() {
+        var textarea = document.getElementById("output");
+        if (textarea.selectionStart == textarea.selectionEnd) {
+            textarea.scrollTop = textarea.scrollHeight;
+        }
     }
     setupComputerGuessGame();
 </script>
