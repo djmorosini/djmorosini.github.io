@@ -158,15 +158,15 @@
         input.setAttribute("class", "inputbox")
         input.setAttribute("id", "inputNumber")
         input.setAttribute("type", "text")
-        // input.setAttribute("value", calcMid(minG,maxG).toString())
+        input.setAttribute("value", "50")
         input.addEventListener('submit', runHgame)
         hGame.appendChild(input)
 
         hGame = document.getElementById('hGame')
         button = document.createElement('button')
-        button.textContent = "Submit"
+        button.textContent = "New Game"
         button.setAttribute("id", "inputNumber")
-        button.addEventListener('click', runHgame)
+        button.addEventListener('click', restartHguess)
         hGame.appendChild(button)
 
         listenEnterKey()
@@ -230,6 +230,10 @@
     function restartCgame() {
         clear();
         startCgame();
+    }
+    function restartHguess() {
+        clear()
+        startHguess()
     }
     function checkTextareaHeight() {
         var textarea = document.getElementById("output");
