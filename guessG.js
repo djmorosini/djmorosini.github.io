@@ -98,7 +98,7 @@ function runHgame() {
             exit();
         } else if (trys == numberOfGuesses) {
             say("I am Groot.")
-            say("'It took exactly " + trys + " out of " + numberOfGuesses + " tries. Nice job!'");
+            say("'It took exactly " + trys + " out of " + numberOfGuesses + " tries. Nice job.'");
             exit();
         }
     } else {

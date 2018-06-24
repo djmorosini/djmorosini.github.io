@@ -64,6 +64,9 @@
         font-family: 'Orbitron', sans-serif;
         margin: 10px 20px 10px 0px;
     }
+    .newHguess {
+        margin: 10px 20px 10px 20px;
+    }
 </style>
 
 <head>
@@ -166,6 +169,7 @@
         button = document.createElement('button')
         button.textContent = "New Game"
         button.setAttribute("id", "inputNumber")
+        button.setAttribute("class", "newHguess")
         button.addEventListener('click', restartHguess)
         hGame.appendChild(button)
 
