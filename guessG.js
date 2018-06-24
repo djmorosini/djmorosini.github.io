@@ -65,11 +65,13 @@ function runHgame() {
         say("'I already told you it can't be higher than " + maxG + ".'");
     } else if (humanGuess < computerNumber) {
         if (maxG != 100) {
+            say("Guess " + trys + " out of " + numberOfGuesses + ";\n")
             say("I am Groot!")
             say("'Nope, it's higher than " + humanGuess + " but lower than " + maxG + "!' Guess again.");
             minG = humanGuess;
             trys++;
         } else {
+            say("Guess " + trys + " out of " + numberOfGuesses + ";\n")
             say("I am Groot!")
             say("'Nope, it's higher than " + humanGuess + " but lower than, or including " + maxG + "!' Guess again.");
             minG = humanGuess;
@@ -77,11 +79,13 @@ function runHgame() {
         }
     } else if (humanGuess > computerNumber) {
         if (minG != 1) {
+            say("Guess " + trys + " out of " + numberOfGuesses + ";\n")
             say("I am Groot!")
             say("'Nope, it's lower than " + humanGuess + " but higher than " + minG + "!' Guess again.");
             maxG = humanGuess;
             trys++;
         } else {
+            say("Guess " + trys + " out of " + numberOfGuesses + ";\n")
             say("I am Groot!")
             say("'Nope, it's lower than " + humanGuess + " but higher than, or including " + minG + "!' Guess again.");
             maxG = humanGuess;
@@ -89,16 +93,28 @@ function runHgame() {
         }
     } else if (humanGuess == computerNumber) {
         if (trys < numberOfGuesses) {
+            if (trys > 1) {
+                clear()
+            }
             say("I am Groot!")
-            say("'You guessed it in " + trys + " tries! Congratulations on guessing it in less than " + numberOfGuesses + " tries!'");
+            say("'You got it, my number was " + computerNumber + "!'")
+            say("'Congratulations! You guessed it in " + trys + "/" + numberOfGuesses + " tries!'");
             exit();
         } else if (trys > numberOfGuesses) {
+            if (trys > 1) {
+                clear()
+            }
             say("I am Groot.")
-            say("'It took " + trys + " tries. That's more than " + numberOfGuesses + " tries, better luck next time.'");
+            say("'You got it, my number was " + computerNumber + ".'")
+            say("'But it took " + trys + "/" + numberOfGuesses + " tries, better luck next time.'");
             exit();
         } else if (trys == numberOfGuesses) {
+            if (trys > 1) {
+                clear()
+            }
             say("I am Groot.")
-            say("'It took exactly " + trys + " out of " + numberOfGuesses + " tries. Nice job.'");
+            say("'You got it, my number was " + computerNumber + ".'")
+            say("'It took exactly " + trys + "/" + numberOfGuesses + " tries. Nice job.'");
             exit();
         }
     } else {
@@ -129,6 +145,9 @@ function makeGuess(guess) {
 }
 
 function ifCorrect() {
+    if (trys > 1) {
+        clear()
+    }
     if (!lastGuess || !minG || !parseInt(maxG)) {
         say("Please submit a maximum number first.")
     } else {
