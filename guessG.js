@@ -98,7 +98,8 @@ function runHgame() {
             }
             say("I am Groot!")
             say("'You got it, my number was " + computerNumber + "!'")
-            say("'Congratulations! You guessed it in " + trys + "/" + numberOfGuesses + " tries!'");
+            say("'Congratulations! You guessed it in " + trys + "/" + numberOfGuesses + " tries!'\n");
+            say("Click the 'New Game' button to play again!\n")
             exit();
         } else if (trys > numberOfGuesses) {
             if (trys > 1) {
@@ -106,7 +107,8 @@ function runHgame() {
             }
             say("I am Groot.")
             say("'You got it, my number was " + computerNumber + ".'")
-            say("'But it took " + trys + "/" + numberOfGuesses + " tries, better luck next time.'");
+            say("'But it took " + trys + "/" + numberOfGuesses + " tries, better luck next time.'\n");
+            say("Click the 'New Game' button to play again!\n")
             exit();
         } else if (trys == numberOfGuesses) {
             if (trys > 1) {
@@ -114,7 +116,8 @@ function runHgame() {
             }
             say("I am Groot.")
             say("'You got it, my number was " + computerNumber + ".'")
-            say("'It took exactly " + trys + "/" + numberOfGuesses + " tries. Nice job.'");
+            say("'It took exactly " + trys + "/" + numberOfGuesses + " tries. Nice job.'\n");
+            say("Click the 'New Game' button to play again!\n")
             exit();
         }
     } else {
