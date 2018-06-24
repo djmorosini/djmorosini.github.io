@@ -2,37 +2,82 @@
 <html>
 
 <style>
-    #submitB {
-        margin: 0px 0px 20px 0px;
+    body {
+        background-image: url("images/groot.jpg");
+        color: green;
+        background-position: top right;
+        background-size: 1200px;
+        text-shadow: 1px 1px 0px black,
+        1px 1px 10px rgba(0, 0, 0, 0.15),
+        1px 1px 2px rgba(0, 0, 0, 0.1),
+        1px 1px 20px rgba(0, 0, 0, 0.1);
+        /* font-family: 'Shadows Into Light', cursive; */
+        /* font-family: 'Play', sans-serif; */
+        font-family: 'Orbitron', sans-serif;
+
     }
 
-    button {
-        margin: 0px 20px 0px 0px;
+    .element {
+        position: absolute;
+        top: 10px;
+        left: 900px;
+        width: 200px;
+        font-family: 'Orbitron', sans-serif;
     }
 
     pre {
         color: purple;
         font-size: 20px;
         box-sizing: content-box;
-        height: 350px;
-        width: 1300px;
+        height: 250px;
+        width: 1250px;
         border: solid black 0px;
         overflow: auto;
         scroll-behavior: auto;
         scroll-snap-type: mandatory;
+        font-family: 'Orbitron', sans-serif;
+        position: absolute;
+        top: 330px;
+        left: 5px;
+    }
+
+    .outline {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .inputbox {
+        background-color: khaki;
+        color: green;
+        font-weight: 900;
+        text-shadow: 1px 1px 0px black,
+        1px 1px 10px rgba(0, 0, 0, 0.15),
+        1px 1px 2px rgba(0, 0, 0, 0.1),
+        1px 1px 20px rgba(0, 0, 0, 0.1);
+        font-family: 'Orbitron', sans-serif;
+
+    }
+
+    button {
+        background-color: khaki;
+        color: purple;
+        font-weight: bold;
+        font-family: 'Orbitron', sans-serif;
+        margin: 10px 20px 10px 0px;
     }
 </style>
 
 <head>
-    <title>Guessing game!</title>
+    <title>Groot guessing game!</title>
     <script>
         module = {}
     </script>
     <script src="guessG.js"></script>
     <link rel="icon" type="image/png" href="images/lapIcon.png">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron|Play|Shadows+Into+Light" rel="stylesheet">
 </head>
 
 <body>
+    <img class="element" src="images/angry-groot.jpg" title="I am Groot" alt="Groot">
     <a href="/">
         Home
     </a>
@@ -49,15 +94,18 @@
         Contact me
     </a>
 
-    <h1>Guessing Game</h1>
+    <h1>Groot Guessing Game</h1>
     <p>Submit the maximum guess number before starting;</p>
-    <input id="maxGuess" type="text" value="100" />
+    <input class="inputbox" id="maxGuess" type="text" value="100" />
     <button id="submitB" onclick="handleSubmit()">Submit</button>
+
+    <div id="pick"></div>
+    <div id="hGame"></div>
 
     <div id="main">
     </div>
 
-    <pre id="output">
+    <pre id="output" class="outline">
     </pre>
 
 </body>
@@ -66,44 +114,111 @@
     function handleSubmit() {
         let newMax = document.getElementById("maxGuess").value
         newMax = parseInt(newMax)
-        restart();
+
+        clear()
+        clearMain()
+        clearInput()
+        clearPick()
+        pickGame()
+
+
     }
+    function clearMain() {
+        mainHasChild = document.querySelector("#guessButton") != null;
+        while (mainHasChild) {
+            mButton = document.querySelector("#guessButton")
+            mButton.remove()
+        }
+    }
+    function clearPick() {
+        pickHasChild = document.querySelector("#pickButton") != null;
+        while (pickHasChild) {
+            pButton = document.querySelector("#pickButton")
+            pButton.remove()
+        }
 
+    }
+    function clearInput() {
+        humanGameHasChild = document.querySelector("#inputNumber") != null;
+        while (humanGameHasChild) {
+            iButton = document.querySelector("#inputNumber")
+            iButton.remove()
+        }
+    }
+    function setupHumanGuessGame() {
+        clear()
+        clearMain()
+        humanGameHasChild = document.querySelector("#inputNumber") != null;
+        while (humanGameHasChild) {
+            iButton = document.querySelector("#inputNumber")
+            iButton.remove()
+        }
+        hGame = document.getElementById('hGame')
+        input = document.createElement('input')
+        input.setAttribute("class", "inputbox")
+        input.setAttribute("id", "inputNumber")
+        input.setAttribute("type", "text")
+        // input.setAttribute("value", calcMid(minG,maxG).toString())
+        input.addEventListener('submit', runHgame)
+        hGame.appendChild(input)
+
+        hGame = document.getElementById('hGame')
+        button = document.createElement('button')
+        button.textContent = "Submit"
+        button.setAttribute("id", "inputNumber")
+        button.addEventListener('click', runHgame)
+        hGame.appendChild(button)
+
+        listenEnterKey()
+
+        startHguess()
+
+    }
     function setupComputerGuessGame() {
-
+        clear()
+        clearInput()
+        guessGameHasChild = document.querySelector("#guessButton") != null;
+        while (guessGameHasChild) {
+            gButton = document.querySelector("#guessButton")
+            gButton.remove()
+        }
         main = document.getElementById('main')
         button = document.createElement('button')
         button.textContent = "Higher"
-        button.setAttribute("id", "higherB")
+        button.setAttribute("id", "guessButton")
         button.addEventListener('click', ifHigher)
         main.appendChild(button)
 
         main = document.getElementById('main')
         button = document.createElement('button')
         button.textContent = "Lower"
-        button.setAttribute("id", "lowerB")
+        button.setAttribute("id", "guessButton")
         button.addEventListener('click', ifLower)
         main.appendChild(button)
 
         main = document.getElementById('main')
         button = document.createElement('button')
         button.textContent = "Correct"
-        button.setAttribute("id", "correctB")
+        button.setAttribute("id", "guessButton")
         button.addEventListener('click', ifCorrect)
         main.appendChild(button)
 
         main = document.getElementById('main')
         button = document.createElement('button')
         button.textContent = "New Game"
-        button.setAttribute("id", "startB")
-        button.addEventListener('click', restart)
+        button.setAttribute("id", "guessButton")
+        button.addEventListener('click', restartCgame)
         main.appendChild(button)
+
+        startCgame()
 
     }
 
     function say(message) {
+
         document.getElementById('output').textContent += '\n' + message;
         checkTextareaHeight()
+
     }
     function exit() {
         console.log('exit called')
@@ -112,9 +227,9 @@
     function clear() {
         document.getElementById('output').textContent = '';
     }
-    function restart() {
+    function restartCgame() {
         clear();
-        start();
+        startCgame();
     }
     function checkTextareaHeight() {
         var textarea = document.getElementById("output");
@@ -122,7 +237,50 @@
             textarea.scrollTop = textarea.scrollHeight;
         }
     }
-    setupComputerGuessGame();
+    function listenEnterKey() {
+        document.querySelector("#inputNumber").addEventListener('keypress', function (e) {
+            var key = e.which || e.keyCode;
+            if (key === 13) {
+                runHgame()
+            }
+            exit()
+        });
+    }
+    function listenForEnterKey() {
+        document.querySelector("#maxGuess").addEventListener('keypress', function (e) {
+            var key = e.which || e.keyCode;
+            if (key === 13) {
+                handleSubmit()
+            }
+            exit()
+        });
+    }
+    function pickGame() {
+
+
+        pickGhasChild = document.querySelector("#pickButton") != null;
+        while (pickGhasChild) {
+            pgButton = document.querySelector("#pickButton")
+            pgButton.remove()
+        }
+        pick = document.getElementById('pick')
+        button = document.createElement('button')
+        button.textContent = "Guess Groots Number"
+        button.setAttribute("id", "pickButton")
+        button.addEventListener('click', setupHumanGuessGame)
+        pick.appendChild(button)
+
+        pick = document.getElementById('pick')
+        button = document.createElement('button')
+        button.textContent = "Groot Gueses Your Number"
+        button.setAttribute("id", "pickButton")
+        button.addEventListener('click', setupComputerGuessGame)
+        pick.appendChild(button)
+    }
+
+    // setupComputerGuessGame();
+
+    listenForEnterKey();
 </script>
 
 </html>
