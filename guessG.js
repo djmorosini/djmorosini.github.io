@@ -127,7 +127,6 @@ function runHgame() {
     }
 }
 
-
 function say(message) {
     console.log(message)
 }
@@ -191,19 +190,14 @@ function ifHigher() {
         say("You can't do that! You already said it was lower than " + (lastGuess + 1));
     }
 }
-
 function calcMid(min, max) {
     return Math.floor((parseInt(min) + parseInt(max)) / 2);
 }
-
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-
-
 module.exports = {
     ifHigher: ifHigher,
     ifLower: ifLower,
@@ -212,4 +206,3 @@ module.exports = {
     startCgame: startCgame,
     startHguess: startHguess,
 }
-
