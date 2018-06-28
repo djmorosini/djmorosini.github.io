@@ -180,8 +180,9 @@
     }
     function listenEnterKey() {
         document.querySelector("#inputNumber").addEventListener('keypress', function (e) {
-            var key = e.which || e.keyCode;
-            if (key === 13) {
+            // var key = e.which || e.keyCode;
+            // if (key === 13) {
+                if (e.key === 'Enter') {
                 runHgame()
             }
             exit()
@@ -189,8 +190,9 @@
     }
     function listenForEnterKey() {
         document.querySelector("#maxGuess").addEventListener('keypress', function (e) {
-            var key = e.which || e.keyCode;
-            if (key === 13) {
+            // var key = e.which || e.keyCode;
+            // if (key === 13) {
+                if (e.key === 'Enter') {
                 handleSubmit()
             }
             exit()

@@ -1,14 +1,15 @@
 header {
     text-align: center;
-    color:#b87333;
 }
 body {
-    color: #b87333;
-    background-image: url("images/circuitBackg.jpg");
-    background-position: bottom left;
+    /* color: #b87333; */
+    /* background-image: url("images/circuitBackg.jpg"); */
+    /* background-position: bottom left; */
+    /* font-family: 'Shadows Into Light', cursive; */
+    /* font-family: 'Play', sans-serif; */
     font-family: 'Orbitron', sans-serif;
     font-size: 2vw;
-    background-color: #b87333;
+    /* background-color: #b87333; */
     text-shadow: 0px 3px 0px black,
                  0px 4px 10px rgba(0,0,0,0.15),
                  0px 14px 2px rgba(0,0,0,0.1),
@@ -17,6 +18,7 @@ body {
 #links {
     font-size: 3vw;
     padding: 50px 20px 50px 20px;
+    font-family: 'Shadows Into Light', cursive;
 }
 
 .element {
@@ -32,45 +34,17 @@ body {
 }
 
 .border {
-    border-color: #b87333;
+    /* border-color: #b87333; */
     border-width: 5px;
     border-style: solid;
     border-radius: 30%;
 }
 a {
-    color:rgb(0, 90, 0);
+    /* color:rgb(0, 90, 0); */
 }
 a:hover {
-    color: #b87333;
+    /* color: #b87333; */
 }
 a:clicked {
-    color: purple;
+    /* color: purple; */
 }
-
-#preview {
-    box-sizing: content-box;
-    height: 75px;
-    width: 305px;
-    border: solid black 1px;
-    margin: auto;
-    overflow: auto;
-    scroll-behavior: smooth;
-    position: absolute;
-    top: 550px; left: 500px;
-    background-color:black;
-    color:#b87333;
-  }
-  #source {
-    height: 70px;
-    width: 300px;
-    position: absolute;
-    top: 550px; left: 20px;
-    border: solid black 1px;
-    background-color:black;
-    color:rgb(0, 90, 0);
-  }
-  #render {
-    position: absolute;
-    top: 570px; left: 380px;
-    border: solid black 1px;
-  }
