@@ -64,3 +64,16 @@ button {
 .newHguess {
     margin: 10px 20px 10px 5px;
 }
+
+#links {
+    font-size: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin:20px;
+    padding:20px;
+    font-family: 'Orbitron', sans-serif;
+}
+nav {
+
+}

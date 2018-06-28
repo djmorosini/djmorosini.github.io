@@ -13,23 +13,26 @@
 </head>
 
 <body>
+    <nav>
+        <div id="links">
+            <a href="/">
+                Home
+            </a>
+            <br>
+            <a href="/aboutme.html">
+                About me
+            </a>
+            <br>
+            <a href="/projects.html">
+                Projects
+            </a>
+            <br>
+            <a href="/contactInfo.html">
+                Contact me
+            </a>
+        </div>
+    </nav>
     <img class="element" src="images/angry-groot.jpg" title="I am Groot" alt="Groot">
-    <a href="/">
-        Home
-    </a>
-    <br>
-    <a href="/aboutme.html">
-        About me
-    </a>
-    <br>
-    <a href="/projects.html">
-        Projects
-    </a>
-    <br>
-    <a href="/contactInfo.html">
-        Contact me
-    </a>
-
     <h1>Groot Guessing Game</h1>
     <p>Submit the maximum guess number before starting;</p>
     <input class="inputbox" id="maxGuess" type="text" value="100" />
@@ -182,7 +185,7 @@
         document.querySelector("#inputNumber").addEventListener('keypress', function (e) {
             // var key = e.which || e.keyCode;
             // if (key === 13) {
-                if (e.key === 'Enter') {
+            if (e.key === 'Enter') {
                 runHgame()
             }
             exit()
@@ -192,7 +195,7 @@
         document.querySelector("#maxGuess").addEventListener('keypress', function (e) {
             // var key = e.which || e.keyCode;
             // if (key === 13) {
-                if (e.key === 'Enter') {
+            if (e.key === 'Enter') {
                 handleSubmit()
             }
             exit()
