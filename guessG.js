@@ -42,10 +42,11 @@ function startHguess() {
 
         trys = 1
         computerNumber = getRandomIntInclusive(minG, maxG)
+
+        say("I am Groot. I am Groot?")
+        say("'I'm thinking of a number between " + minG + " and " + maxG + " (Inclusive). Can you guess it in " + numberOfGuesses + " tries?'")
+        say("Enter a number above.")
     }
-    say("I am Groot. I am Groot?")
-    say("'I'm thinking of a number between " + minG + " and " + maxG + " (Inclusive). Can you guess it in " + numberOfGuesses + " tries?'")
-    say("Enter a number above.")
 }
 function runHgame() {
     clear()
