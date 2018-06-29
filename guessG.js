@@ -5,6 +5,7 @@ let lastGuess
 let firstGuess
 
 let humanGuess
+let lastHguess
 
 let trys
 
@@ -57,6 +58,9 @@ function runHgame() {
     } else if (humanGuess == 0) {
         say("I am Groot!")
         say("'You have to enter a number!'");
+    } else if (trys > 1 && humanGuess == lastHguess) {
+        say("I am Groot!")
+        say("'Pick a different number between "+minG+" and "+maxG+"!'")
     } else if (humanGuess < minG) {
         say("I am Groot.")
         say("'I already told you it can't be lower than " + minG + ".'");
@@ -68,28 +72,32 @@ function runHgame() {
             say("Guess " + trys + " out of " + numberOfGuesses + ";\n")
             say("I am Groot!")
             say("'Nope, it's higher than " + humanGuess + " but lower than " + maxG + "!' Guess again.");
-            minG = humanGuess;
+            minG = humanGuess +1;
             trys++;
+            lastHguess = humanGuess;
         } else {
             say("Guess " + trys + " out of " + numberOfGuesses + ";\n")
             say("I am Groot!")
             say("'Nope, it's higher than " + humanGuess + " but lower than, or including " + maxG + "!' Guess again.");
-            minG = humanGuess;
+            minG = humanGuess +1;
             trys++;
+            lastHguess = humanGuess;
         }
     } else if (humanGuess > computerNumber) {
         if (minG != 1) {
             say("Guess " + trys + " out of " + numberOfGuesses + ";\n")
             say("I am Groot!")
             say("'Nope, it's lower than " + humanGuess + " but higher than " + minG + "!' Guess again.");
-            maxG = humanGuess;
+            maxG = humanGuess-1;
             trys++;
+            lastHguess = humanGuess;
         } else {
             say("Guess " + trys + " out of " + numberOfGuesses + ";\n")
             say("I am Groot!")
             say("'Nope, it's lower than " + humanGuess + " but higher than, or including " + minG + "!' Guess again.");
-            maxG = humanGuess;
+            maxG = humanGuess-1;
             trys++;
+            lastHguess = humanGuess;
         }
     } else if (humanGuess == computerNumber) {
         if (trys < numberOfGuesses) {

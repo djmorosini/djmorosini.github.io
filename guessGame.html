@@ -63,35 +63,21 @@
 
     }
     function clearMain() {
-        mainHasChild = document.querySelector("#guessButton") != null;
-        while (mainHasChild) {
-            mButton = document.querySelector("#guessButton")
-            mButton.remove()
-        }
+
+        removeChildren("#guessButton")
     }
     function clearPick() {
-        pickHasChild = document.querySelector("#pickButton") != null;
-        while (pickHasChild) {
-            pButton = document.querySelector("#pickButton")
-            pButton.remove()
-        }
+        removeChildren("#pickButton")
 
     }
     function clearInput() {
-        humanGameHasChild = document.querySelector("#inputNumber") != null;
-        while (humanGameHasChild) {
-            iButton = document.querySelector("#inputNumber")
-            iButton.remove()
-        }
+        removeChildren("#inputNumber")
     }
     function setupHumanGuessGame() {
         clear()
         clearMain()
-        humanGameHasChild = document.querySelector("#inputNumber") != null;
-        while (humanGameHasChild) {
-            iButton = document.querySelector("#inputNumber")
-            iButton.remove()
-        }
+        clearInput()
+        // removeChildren("#inputNumber")
         hGame = document.getElementById('hGame')
         input = document.createElement('input')
         input.setAttribute("class", "inputbox")
@@ -114,14 +100,20 @@
         startHguess()
 
     }
+
+    function removeChildren(selector) {
+        let children = document.querySelectorAll(selector);
+        for (let child of children) {
+            child.remove()
+        }
+    }
+
     function setupComputerGuessGame() {
         clear()
         clearInput()
-        guessGameHasChild = document.querySelector("#guessButton") != null;
-        while (guessGameHasChild) {
-            gButton = document.querySelector("#guessButton")
-            gButton.remove()
-        }
+        clearMain()
+        // removeChildren("#guessButton")
+
         main = document.getElementById('main')
         button = document.createElement('button')
         button.textContent = "Higher"
@@ -203,12 +195,8 @@
     }
     function pickGame() {
 
-
-        pickGhasChild = document.querySelector("#pickButton") != null;
-        while (pickGhasChild) {
-            pgButton = document.querySelector("#pickButton")
-            pgButton.remove()
-        }
+        clearPick()
+        // removeChildren("#pickButton")
         pick = document.getElementById('pick')
         button = document.createElement('button')
         button.textContent = "Guess Groots Number"
