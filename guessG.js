@@ -17,7 +17,6 @@ function startCgame() {
     maxG = document.getElementById("maxGuess").value;
     if (!parseInt(maxG) || maxG == "") {
         say("The maximum guess has to be a number!")
-        exit()
     } else {
 
         firstGuess = calcMid(minG, maxG)
@@ -38,7 +37,6 @@ function startHguess() {
     maxG = document.getElementById("maxGuess").value;
     if (!parseInt(maxG) || maxG == "") {
         say("The maximum guess has to be a number!")
-        exit()
     } else {
         numberOfGuesses = Math.ceil(Math.log2(maxG))
 
@@ -60,7 +58,7 @@ function runHgame() {
         say("'You have to enter a number!'");
     } else if (trys > 1 && humanGuess == lastHguess) {
         say("I am Groot!")
-        say("'Pick a different number between "+minG+" and "+maxG+"!'")
+        say("'Pick a different number between " + minG + " and " + maxG + "!'")
     } else if (humanGuess < minG) {
         say("I am Groot.")
         say("'I already told you it can't be lower than " + minG + ".'");
@@ -72,14 +70,14 @@ function runHgame() {
             say("Guess " + trys + " out of " + numberOfGuesses + ";\n")
             say("I am Groot!")
             say("'Nope, it's higher than " + humanGuess + " but lower than " + maxG + "!' Guess again.");
-            minG = humanGuess +1;
+            minG = humanGuess + 1;
             trys++;
             lastHguess = humanGuess;
         } else {
             say("Guess " + trys + " out of " + numberOfGuesses + ";\n")
             say("I am Groot!")
             say("'Nope, it's higher than " + humanGuess + " but lower than, or including " + maxG + "!' Guess again.");
-            minG = humanGuess +1;
+            minG = humanGuess + 1;
             trys++;
             lastHguess = humanGuess;
         }
@@ -88,14 +86,14 @@ function runHgame() {
             say("Guess " + trys + " out of " + numberOfGuesses + ";\n")
             say("I am Groot!")
             say("'Nope, it's lower than " + humanGuess + " but higher than " + minG + "!' Guess again.");
-            maxG = humanGuess-1;
+            maxG = humanGuess - 1;
             trys++;
             lastHguess = humanGuess;
         } else {
             say("Guess " + trys + " out of " + numberOfGuesses + ";\n")
             say("I am Groot!")
             say("'Nope, it's lower than " + humanGuess + " but higher than, or including " + minG + "!' Guess again.");
-            maxG = humanGuess-1;
+            maxG = humanGuess - 1;
             trys++;
             lastHguess = humanGuess;
         }
@@ -108,7 +106,7 @@ function runHgame() {
             say("'You got it, my number was " + computerNumber + "!'")
             say("'Congratulations! You guessed it in " + trys + "/" + numberOfGuesses + " tries!'\n");
             say("Click the 'New Game' button to play again!\n")
-            exit();
+
         } else if (trys > numberOfGuesses) {
             if (trys > 1) {
                 clear()
@@ -117,7 +115,7 @@ function runHgame() {
             say("'You got it, my number was " + computerNumber + ".'")
             say("'But it took " + trys + "/" + numberOfGuesses + " tries, better luck next time.'\n");
             say("Click the 'New Game' button to play again!\n")
-            exit();
+
         } else if (trys == numberOfGuesses) {
             if (trys > 1) {
                 clear()
@@ -126,12 +124,12 @@ function runHgame() {
             say("'You got it, my number was " + computerNumber + ".'")
             say("'It took exactly " + trys + "/" + numberOfGuesses + " tries. Nice job.'\n");
             say("Click the 'New Game' button to play again!\n")
-            exit();
+
         }
     } else {
         say("I am Groot?")
         say("'What?'");
-        exit();
+
     }
 }
 
@@ -165,7 +163,7 @@ function ifCorrect() {
         say("'Your number was " + lastGuess + "!'\n");
         say("Groot guessed your number in " + trys + " out of " + numberOfGuesses + " tries.\n");
         say("Click the 'New Game' button to play again!\n")
-        exit();
+
     }
 }
 

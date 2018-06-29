@@ -103,10 +103,6 @@ function say(message) {
     checkTextareaHeight()
 
 }
-function exit() {
-    console.log('exit called')
-
-}
 function clear() {
     document.getElementById('output').textContent = '';
 }
@@ -136,10 +132,10 @@ function listenForEnterKey(selector, callback) {
     document.querySelector(selector).addEventListener('keypress', function (e) {
         // var key = e.which || e.keyCode;
         // if (key === 13) {
+            console.log("HI! you pressed " + e.key)
         if (e.key === 'Enter') {
             callback();
         }
-        exit();
     });
 }
 
