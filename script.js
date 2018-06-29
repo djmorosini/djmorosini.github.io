@@ -25,28 +25,34 @@ function setupHumanGuessGame() {
     clear()
     clearMain()
     clearInput()
-    // removeChildren("#inputNumber")
-    let hGame = document.getElementById('hGame')
 
-    input = document.createElement('input')
-    input.setAttribute("class", "inputbox")
-    input.setAttribute("id", "inputNumber")
-    input.setAttribute("type", "text")
-    input.setAttribute("value", "50")
-    input.addEventListener('submit', runHgame)
-    hGame.appendChild(input)
+    let humanGameOptions = document.getElementById('hGame')
+    appendHumanGameInput(humanGameOptions);
+    appendRestartGameButton(humanGameOptions);
 
-    button = document.createElement('button')
-    button.textContent = "New Game"
-    button.setAttribute("id", "inputNumber")
-    button.setAttribute("class", "newHguess")
-    button.addEventListener('click', restartHguess)
-    hGame.appendChild(button)
-
-    listenEnterKey()
+    listenForEnterKeyOnHGame()
 
     startHguess()
 
+}
+
+function appendRestartGameButton(humanGameOptions) {
+    let button = document.createElement('button');
+    button.textContent = "New Game";
+    button.setAttribute("id", "inputNumber");
+    button.setAttribute("class", "newHguess");
+    button.addEventListener('click', restartHguess);
+    humanGameOptions.appendChild(button);
+}
+
+function appendHumanGameInput(hGame) {
+    let input = document.createElement('input');
+    input.setAttribute("class", "inputbox");
+    input.setAttribute("id", "inputNumber");
+    input.setAttribute("type", "text");
+    input.setAttribute("value", "50");
+    input.addEventListener('submit', runHgame);
+    hGame.appendChild(input);
 }
 
 function removeElements(selector) {
@@ -118,38 +124,37 @@ function checkTextareaHeight() {
         textarea.scrollTop = textarea.scrollHeight;
     }
 }
-function listenEnterKey() {
-    document.querySelector("#inputNumber").addEventListener('keypress', function (e) {
+function listenForEnterKeyOnHGame() {
+    listenForEnterKey("#inputNumber", runHgame)
+}
+
+function listenForEnterKeyOnSubmit() {
+    listenForEnterKey("#maxGuess", handleSubmit);
+}
+
+function listenForEnterKey(selector, callback) {
+    document.querySelector(selector).addEventListener('keypress', function (e) {
         // var key = e.which || e.keyCode;
         // if (key === 13) {
         if (e.key === 'Enter') {
-            runHgame()
+            callback();
         }
-        exit()
+        exit();
     });
 }
-function listenForEnterKey() {
-    document.querySelector("#maxGuess").addEventListener('keypress', function (e) {
-        // var key = e.which || e.keyCode;
-        // if (key === 13) {
-        if (e.key === 'Enter') {
-            handleSubmit()
-        }
-        exit()
-    });
-}
+
 function pickGame() {
 
     clearPick()
     // removeChildren("#pickButton")
     let pick = document.getElementById('pick')
 
-    appendButton("Guess Groots Number", setupHumanGuessGame, pick);
-    appendButton("Groot Guesses Your Number", setupComputerGuessGame, pick)
+    appendPickButton("Guess Groots Number", setupHumanGuessGame, pick);
+    appendPickButton("Groot Guesses Your Number", setupComputerGuessGame, pick)
 }
 
-function appendButton(buttonTitle, listener, pick) {
-    button = document.createElement('button');
+function appendPickButton(buttonTitle, listener, pick) {
+    let button = document.createElement('button');
     button.textContent = buttonTitle;
     button.setAttribute("id", "pickButton");
     button.addEventListener('click', listener);
