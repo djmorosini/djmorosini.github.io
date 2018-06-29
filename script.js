@@ -12,14 +12,14 @@ function handleSubmit() {
 }
 function clearMain() {
 
-    removeChildren("#guessButton")
+    removeElements("#guessButton")
 }
 function clearPick() {
-    removeChildren("#pickButton")
+    removeElements("#pickButton")
 
 }
 function clearInput() {
-    removeChildren("#inputNumber")
+    removeElements("#inputNumber")
 }
 function setupHumanGuessGame() {
     clear()
@@ -49,10 +49,10 @@ function setupHumanGuessGame() {
 
 }
 
-function removeChildren(selector) {
-    let children = document.querySelectorAll(selector);
-    for (let child of children) {
-        child.remove()
+function removeElements(selector) {
+    let elements = document.querySelectorAll(selector);
+    for (let element of elements) {
+        element.remove()
     }
 }
 
@@ -143,15 +143,15 @@ function pickGame() {
     clearPick()
     // removeChildren("#pickButton")
     let pick = document.getElementById('pick')
-    button = document.createElement('button')
-    button.textContent = "Guess Groots Number"
-    button.setAttribute("id", "pickButton")
-    button.addEventListener('click', setupHumanGuessGame)
-    pick.appendChild(button)
 
-    button = document.createElement('button')
-    button.textContent = "Groot Gueses Your Number"
-    button.setAttribute("id", "pickButton")
-    button.addEventListener('click', setupComputerGuessGame)
-    pick.appendChild(button)
+    appendButton("Guess Groots Number", setupHumanGuessGame, pick);
+    appendButton("Groot Guesses Your Number", setupComputerGuessGame, pick)
+}
+
+function appendButton(buttonTitle, listener, pick) {
+    button = document.createElement('button');
+    button.textContent = buttonTitle;
+    button.setAttribute("id", "pickButton");
+    button.addEventListener('click', listener);
+    pick.appendChild(button);
 }
