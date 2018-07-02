@@ -7,11 +7,9 @@ function handleSubmit() {
     clearInput()
     clearPick()
     pickGame()
-
-
 }
-function clearMain() {
 
+function clearMain() {
     removeElements("#guessButton")
 }
 function clearPick() {
@@ -21,6 +19,13 @@ function clearPick() {
 function clearInput() {
     removeElements("#inputNumber")
 }
+function removeElements(selector) {
+    let elements = document.querySelectorAll(selector);
+    for (let element of elements) {
+        element.remove()
+    }
+}
+
 function setupHumanGuessGame() {
     clear()
     clearMain()
@@ -35,7 +40,6 @@ function setupHumanGuessGame() {
     startHguess()
 
 }
-
 function appendRestartGameButton(humanGameOptions) {
     let button = document.createElement('button');
     button.textContent = "New Game";
@@ -44,7 +48,6 @@ function appendRestartGameButton(humanGameOptions) {
     button.addEventListener('click', restartHguess);
     humanGameOptions.appendChild(button);
 }
-
 function appendHumanGameInput(hGame) {
     let input = document.createElement('input');
     input.setAttribute("class", "inputbox");
@@ -55,46 +58,27 @@ function appendHumanGameInput(hGame) {
     hGame.appendChild(input);
 }
 
-function removeElements(selector) {
-    let elements = document.querySelectorAll(selector);
-    for (let element of elements) {
-        element.remove()
-    }
-}
-
 function setupComputerGuessGame() {
     clear()
     clearInput()
     clearMain()
-    // removeChildren("#guessButton")
 
-    let main = document.getElementById('main')
-    button = document.createElement('button')
-    button.textContent = "Higher"
-    button.setAttribute("id", "guessButton")
-    button.addEventListener('click', ifHigher)
-    main.appendChild(button)
+    let computerGuessGameOptions = document.getElementById('main')
 
-    button = document.createElement('button')
-    button.textContent = "Lower"
-    button.setAttribute("id", "guessButton")
-    button.addEventListener('click', ifLower)
-    main.appendChild(button)
-
-    button = document.createElement('button')
-    button.textContent = "Correct"
-    button.setAttribute("id", "guessButton")
-    button.addEventListener('click', ifCorrect)
-    main.appendChild(button)
-
-    button = document.createElement('button')
-    button.textContent = "New Game"
-    button.setAttribute("id", "guessButton")
-    button.addEventListener('click', restartCgame)
-    main.appendChild(button)
+    appendMainButton("Higher", ifHigher, computerGuessGameOptions)
+    appendMainButton("Lower", ifLower, computerGuessGameOptions)
+    appendMainButton("Correct", ifCorrect, computerGuessGameOptions)
+    appendMainButton("New Game", restartCgame, computerGuessGameOptions)
 
     startCgame()
 
+}
+function appendMainButton(buttonTitle, listener, divName) {
+    let button = document.createElement('button');
+    button.textContent = buttonTitle;
+    button.setAttribute("id", "guessButton");
+    button.addEventListener('click', listener);
+    divName.appendChild(button);
 }
 
 function say(message) {
@@ -106,6 +90,7 @@ function say(message) {
 function clear() {
     document.getElementById('output').textContent = '';
 }
+
 function restartCgame() {
     clear();
     startCgame();
@@ -114,20 +99,20 @@ function restartHguess() {
     clear()
     startHguess()
 }
+
 function checkTextareaHeight() {
     var textarea = document.getElementById("output");
     if (textarea.selectionStart == textarea.selectionEnd) {
         textarea.scrollTop = textarea.scrollHeight;
     }
 }
+
 function listenForEnterKeyOnHGame() {
     listenForEnterKey("#inputNumber", runHgame)
 }
-
 function listenForEnterKeyOnSubmit() {
     listenForEnterKey("#maxGuess", handleSubmit);
 }
-
 function listenForEnterKey(selector, callback) {
     document.querySelector(selector).addEventListener('keypress', function (e) {
         // var key = e.which || e.keyCode;
@@ -140,19 +125,16 @@ function listenForEnterKey(selector, callback) {
 }
 
 function pickGame() {
-
     clearPick()
-    // removeChildren("#pickButton")
-    let pick = document.getElementById('pick')
+    let pickGameOptions = document.getElementById('pick')
 
-    appendPickButton("Guess Groots Number", setupHumanGuessGame, pick);
-    appendPickButton("Groot Guesses Your Number", setupComputerGuessGame, pick)
+    appendPickButton("Guess Groots Number", setupHumanGuessGame, pickGameOptions);
+    appendPickButton("Groot Guesses Your Number", setupComputerGuessGame, pickGameOptions)
 }
-
-function appendPickButton(buttonTitle, listener, pick) {
+function appendPickButton(buttonTitle, listener, divName) {
     let button = document.createElement('button');
     button.textContent = buttonTitle;
     button.setAttribute("id", "pickButton");
     button.addEventListener('click', listener);
-    pick.appendChild(button);
+    divName.appendChild(button);
 }
