@@ -22,7 +22,7 @@ function capitalize(name) {
 function startCgame() {
     minG = 1;
     maxG = document.getElementById("maxGuess").value;
-    if (!parseInt(maxG) || maxG == "" || isNaN(parseInt(maxG))) {
+    if (!parseInt(maxG) || maxG == "" || isNaN(maxG)==true) {
         say("The maximum guess has to be a number!")
     } else {
 
@@ -89,7 +89,7 @@ function ifHigher() {
 function startHguess() {
     minG = 1;
     maxG = document.getElementById("maxGuess").value;
-    if (!parseInt(maxG) || maxG == "" || isNaN(parseInt(maxG))) {
+    if (!parseInt(maxG) || maxG == "" || isNaN(maxG)==true) {
         say("The maximum guess has to be a number!")
     } else {
         numberOfGuesses = Math.ceil(Math.log2(maxG))
