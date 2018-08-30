@@ -1,21 +1,6 @@
 #about {
-    background-color: #4A7C59;
+    background-color: #004E64;
 }
 .portfolio-box .portfolio-box-caption {
     background-color: rgba(74,124,89,.92);
-}
-/* #more {
-    color: #FAF3DD;
-    background-color: #4A7C59;
-} */
-
-#mainNav .navbar-nav > li.nav-item > a.nav-link:hover,
-#mainNav .navbar-nav > li.nav-item > a.nav-link:focus:hover {
-    color: #4A7C59;
-}
-
-#mainNav .navbar-nav > li.nav-item > a.nav-link.active,
-#mainNav .navbar-nav > li.nav-item > a.nav-link:focus.active {
-    color: #4A7C59;
-  background-color: transparent;
 }
