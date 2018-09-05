@@ -1,13 +1,21 @@
 #about {
     /* background-color: rgba(0, 78, 100, .7); */
     background: linear-gradient(rgba(0, 78, 100, 1), black);
+    text-shadow: 1px 1px 0px black,
+    1px 1px 10px rgba(0, 0, 0, 0.15),
+    1px 1px 2px rgba(0, 0, 0, 0.1),
+    1px 1px 20px rgba(0, 0, 0, 0.1);
 }
 .portfolio-box .portfolio-box-caption {
     background-color: rgba(74,124,89,.92);
+    text-shadow: 1px 1px 0px black,
+    1px 1px 10px rgba(0, 0, 0, 0.15),
+    1px 1px 2px rgba(0, 0, 0, 0.1),
+    1px 1px 20px rgba(0, 0, 0, 0.1);
 }
 .github {
     background-color: white;
-    color: black;
+    color: rgba(74,124,89,.92);
 }
 .github:hover {
     background-color: rgba(74,124,89,.92);
@@ -18,4 +26,10 @@
 }
 .contact-break {
     background-color: black;
+}
+.masthead {
+    text-shadow: 1px 1px 0px black,
+    1px 1px 10px rgba(0, 0, 0, 0.15),
+    1px 1px 2px rgba(0, 0, 0, 0.1),
+    1px 1px 20px rgba(0, 0, 0, 0.1);
 }
